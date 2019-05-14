@@ -91,8 +91,12 @@ function skittles(e){
         let g = Math.floor(Math.random() * 256);
         let b = Math.floor(Math.random() * 256);
         let rgb = `rgba(${r}, ${g}, ${b}, 0.7)`
-        body.style.backgroundColor = rgb;
-        body.style.transition = "1.5s ease-in-out"
+        TweenLite.to(body.style, 2, {
+        backgroundColor: rgb, 
+        ease: RoughEase.ease
+        })
+        // body.style.backgroundColor = 
+        // body.style.transition = "1.5s ease-in-out"
     }, 2000);
 }
 
@@ -156,7 +160,11 @@ function changeTxtColor(e){
 buttons[2].addEventListener("click",scale)
 function scale(e){
     e.stopPropagation();
-    e.target.style.transform = "scale(1.2,1.2)"
+//stretch goal
+    TweenLite.to("#quote", 2, {
+    backgroundColor:"rgba(135,57,98,0.7)", 
+    ease: Power4.easeIn
+  });
 }
 
 
@@ -165,4 +173,3 @@ const navItems = document.querySelectorAll("nav a")
 navItems.forEach(a => a.addEventListener("click", function(e){
     e.preventDefault();
 }))
-
